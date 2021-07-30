@@ -3,8 +3,8 @@ from typing import Optional
 from aiohttp.client import ClientSession
 
 from pypixiv.http import PixivHttpClient
-from pypixiv.models.illust import IllustInfo
-from pypixiv.models.user import UserFullInfo, UserInfo
+from pypixiv.illust.model import IllustInfo
+from pypixiv.user.model import UserFullInfo, UserInfo
 
 
 class PixivClient(PixivHttpClient):
