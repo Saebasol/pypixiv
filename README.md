@@ -23,7 +23,7 @@ async def main():
         illust = await client.illustinfo(79136250)
         user_id = int(illust.userId)
         print(user_id)
-        user = await client.userinfo(id)
+        user = await client.userinfo(user_id)
         print(user.name)
 
 
