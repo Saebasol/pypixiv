@@ -1,4 +1,5 @@
 from __future__ import annotations
+from pypixiv.models.url import Urls
 
 from typing import Any, Optional
 
@@ -389,6 +390,10 @@ class IllustInfo(ShortIllustInfo):
     @property
     def tags(self) -> Tags:
         return Tags(self.body["tags"])
+
+    @property
+    def urls(self) -> Urls:
+        return Urls(self.body["urls"])
 
     @property
     def userAccount(self) -> str:
