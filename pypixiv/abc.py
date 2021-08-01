@@ -29,7 +29,7 @@ class BaseRanking:
         self.__response = response
 
     @property
-    def contents(self) -> List[dict[str, Any]]:
+    def contents(self) -> list[dict[str, Any]]:
         return self.__response["contents"]
 
     @property
