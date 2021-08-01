@@ -1,4 +1,5 @@
-from typing import Any, List
+from typing import Any
+from typing import List
 
 from pypixiv.abc import BaseRanking
 from pypixiv.ranking.body import ContentBody

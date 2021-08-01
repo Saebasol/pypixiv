@@ -1,5 +1,7 @@
 from types import TracebackType
-from typing import Any, Literal, Optional
+from typing import Any
+from typing import Literal
+from typing import Optional
 
 from aiohttp import ClientSession
 

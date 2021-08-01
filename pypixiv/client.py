@@ -1,11 +1,13 @@
-from typing import Literal, Optional
+from typing import Literal
+from typing import Optional
 
 from aiohttp.client import ClientSession
 
 from pypixiv.http import PixivHttpClient
 from pypixiv.illust.model import IllustInfo
 from pypixiv.ranking.model import RankingInfo
-from pypixiv.user.model import UserFullInfo, UserInfo
+from pypixiv.user.model import UserFullInfo
+from pypixiv.user.model import UserInfo
 
 
 class PixivClient(PixivHttpClient):
