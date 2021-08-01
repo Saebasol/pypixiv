@@ -9,4 +9,4 @@ class RankingInfo(BaseRanking):
 
     @property
     def contents(self) -> list[ContentBody]:
-        return [ContentBody(content) for content in self.response["contents"]]
+        return [ContentBody(content) for content in super().contents]
