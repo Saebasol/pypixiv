@@ -14,10 +14,9 @@ class PixivClient(PixivHttpClient):
     """
     Pixiv API client class.
     """
-
-    def __init__(
-        self, session: Optional[ClientSession] = None, lang: str = "ko"
-    ) -> None:
+    def __init__(self,
+                 session: Optional[ClientSession] = None,
+                 lang: str = "ko") -> None:
         super().__init__(session=session, lang=lang)
 
     async def userinfo(self, user_id: int):
@@ -29,7 +28,6 @@ class PixivClient(PixivHttpClient):
     async def illustinfo(self, illust_id: int):
         return IllustInfo(await self.get_illust(illust_id))
 
-    async def ranking(
-        self, mode: Literal["daily", "weekly", "monthly"], date: Optional[int]
-    ):
+    async def ranking(self, mode: Literal["daily", "weekly", "monthly"],
+                      date: Optional[int]):
         return RankingInfo(await self.get_ranking(mode, date))

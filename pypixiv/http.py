@@ -9,16 +9,17 @@ from aiohttp import ClientSession
 class PixivHttpClient:
     API_URL = "https://www.pixiv.net"
 
-    def __init__(
-        self, session: Optional[ClientSession] = None, lang: str = "ko"
-    ) -> None:
+    def __init__(self,
+                 session: Optional[ClientSession] = None,
+                 lang: str = "ko") -> None:
         self.session = session
         self.lang = lang
 
     @property
     def headers(self) -> dict[str, str]:
         return {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
+            "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
             "Referer": self.API_URL,
         }
 
@@ -49,15 +50,13 @@ class PixivHttpClient:
     ):
         await self.close()
 
-    async def request(
-        self, method: Literal["GET", "POST"], path: str, **kwargs: Any
-    ) -> Any:
+    async def request(self, method: Literal["GET", "POST"], path: str,
+                      **kwargs: Any) -> Any:
         if not self.session:
             self.session = ClientSession(headers=self.headers)
 
-        async with self.session.request(
-            method, f"{self.API_URL}/ajax/{path}", **kwargs
-        ) as r:
+        async with self.session.request(method, f"{self.API_URL}/ajax/{path}",
+                                        **kwargs) as r:
             return await r.json()
 
     async def get_userinfo(self, user_id: int) -> Any:
