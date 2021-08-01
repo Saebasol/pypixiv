@@ -48,27 +48,27 @@ class PixivHttpClient:
         await self.close()
 
     async def request(
-        self, method: Literal["GET", "POST"], path: str, **kwargs: Any
+        self, method: Literal["GET", "POST"], endpoint: str, **kwargs: Any
     ) -> Any:
         if not self.session:
             self.session = ClientSession(headers=self.headers)
 
         async with self.session.request(
-            method, f"{self.API_URL}/ajax/{path}", **kwargs
+            method, f"{self.API_URL}{endpoint}", **kwargs
         ) as r:
             return await r.json()
 
     async def get_userinfo(self, user_id: int) -> Any:
         params = {"full": 0, **self.params}
-        return await self.request("GET", f"user/{user_id}", params=params)
+        return await self.request("GET", f"/ajax/user/{user_id}", params=params)
 
     async def get_full_userinfo(self, user_id: int) -> Any:
         params = {"full": 1, **self.params}
-        return await self.request("GET", f"user/{user_id}", params=params)
+        return await self.request("GET", f"/ajax/user/{user_id}", params=params)
 
     async def get_illust(self, illust_id: int) -> Any:
         params = {**self.params}
-        return await self.request("GET", f"illust/{illust_id}", params=params)
+        return await self.request("GET", f"/ajax/illust/{illust_id}", params=params)
 
     async def get_ranking(
         self,
@@ -79,4 +79,4 @@ class PixivHttpClient:
         if date:
             params.update({"date": date})
 
-        return await self.request("GET", "ranking", params=params)
+        return await self.request("GET", f"/ranking.php", params=params)
