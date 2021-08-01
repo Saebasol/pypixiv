@@ -1,6 +1,7 @@
-from pypixiv.ranking.body import ContentBody
 from typing import Any, List
+
 from pypixiv.abc import BaseRanking
+from pypixiv.ranking.body import ContentBody
 
 
 class RankingInfo(BaseRanking):

@@ -1,5 +1,6 @@
-from pypixiv.ranking.item import IllustContentType
 from typing import Any, List
+
+from pypixiv.ranking.item import IllustContentType
 
 
 class ContentBody:
