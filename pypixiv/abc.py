@@ -61,7 +61,7 @@ class BaseRanking:
         return self.__response["prev_date"]
 
     @property
-    def next_date(self) -> Union[str, bool]:
+    def next_date(self) -> str | bool:
         return self.__response["next_date"]
 
     @property
