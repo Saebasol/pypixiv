@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
+
 class BasePixiv:
     # error: str
     # message: str
@@ -28,7 +29,7 @@ class BaseRanking:
         self.__response = response
 
     @property
-    def contents(self) -> list[dict[str, Any]]:
+    def contents(self) -> list[Any]:
         return self.__response["contents"]
 
     @property
