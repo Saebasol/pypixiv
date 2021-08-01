@@ -72,8 +72,8 @@ class PixivHttpClient:
 
     async def get_ranking(
         self,
-        mode: Literal["dailly", "weekly", "monthly"] = "dailly",
-        date: Optional[int] = None,
+        mode: Literal["daily", "weekly", "monthly"] = "daily",
+        date: Optional[str] = None,
     ) -> Any:
         params = {"format": "json", "mode": mode}
         if date:

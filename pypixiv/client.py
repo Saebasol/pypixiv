@@ -1,4 +1,3 @@
-from pypixiv.ranking.model import RankingInfo
 from typing import Literal, Optional
 
 from aiohttp.client import ClientSession
@@ -6,6 +5,7 @@ from aiohttp.client import ClientSession
 from pypixiv.http import PixivHttpClient
 from pypixiv.illust.model import IllustInfo
 from pypixiv.user.model import UserFullInfo, UserInfo
+from pypixiv.ranking.model import RankingInfo
 
 
 class PixivClient(PixivHttpClient):
@@ -28,6 +28,6 @@ class PixivClient(PixivHttpClient):
         return IllustInfo(await self.get_illust(illust_id))
 
     async def ranking(
-        self, mode: Literal["daily", "weekly", "monthly"], date: Optional[int]
+        self, mode: Literal["daily", "weekly", "monthly"], date: Optional[str]
     ):
         return RankingInfo(await self.get_ranking(mode, date))
