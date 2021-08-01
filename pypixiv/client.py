@@ -28,6 +28,8 @@ class PixivClient(PixivHttpClient):
         return IllustInfo(await self.get_illust(illust_id))
 
     async def ranking(
-        self, mode: Literal["daily", "weekly", "monthly"], date: Optional[str]
+        self,
+        mode: Literal["daily", "weekly", "monthly"] = "daily",
+        date: Optional[str] = None,
     ):
         return RankingInfo(await self.get_ranking(mode, date))
