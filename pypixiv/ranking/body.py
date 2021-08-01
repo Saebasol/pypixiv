@@ -15,7 +15,7 @@ class ContentBody:
         return self._response["date"]
 
     @property
-    def tags(self) -> List[str]:
+    def tags(self) -> list[str]:
         return self._response["tags"]
 
     @property
