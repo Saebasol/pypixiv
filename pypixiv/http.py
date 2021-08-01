@@ -70,6 +70,13 @@ class PixivHttpClient:
         params = {**self.params}
         return await self.request("GET", f"illust/{illust_id}", params=params)
 
-    async def get_ranking(self, mode: str, date: int) -> Any:
-        params = {"mode": mode, "date": date, **self.params}
+    async def get_ranking(
+        self,
+        mode: Literal["dailly", "weekly", "monthly"] = "dailly",
+        date: Optional[int] = None,
+    ) -> Any:
+        params = {"format": "json", "mode": mode}
+        if date:
+            params.update({"date": date})
+
         return await self.request("GET", "ranking", params=params)
