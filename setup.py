@@ -12,7 +12,7 @@ setup(
     long_description=open("README.md", "rt", encoding="UTF8").read(),
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),  # type: ignore
-    package_data={"mintchoco": ["py.typed"]},
+    package_data={"pypixiv": ["py.typed"]},
     description="Pixiv ajax wrapper",
     python_requires=">=3.9",
 )
